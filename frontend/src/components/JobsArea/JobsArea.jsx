@@ -4,18 +4,13 @@ import style from './JobsArea.module.css';
 import JobCard from '../JobCard/JobCard';
 import { useEffect } from 'react';
 import axios from 'axios';
+import {JobsContext} from '../JobsProvider';
+import { useContext } from 'react';
 
 const JobsArea = () => {
 
-    const [jobs, setJobs] = useState([]);
-
-    useEffect(() => {
-        //fetch from server
-        axios.get("http://localhost:3001/getjobs")
-        .then(res => {
-            setJobs(res.data);
-        });
-    }, []);
+    //jobs from context
+    const [jobs, setJobs] = useContext(JobsContext);
 
     return (
         <Grid 

@@ -3,7 +3,7 @@ import { Typography, Grid, TextField, Button, Card, CardActionArea, CardMedia, C
 import style from './JobCard.module.css';
 
 const JobCard = (props) => {
-  console.log(props);
+  
     return (
         <Card className={style.root}>
         <CardActionArea>

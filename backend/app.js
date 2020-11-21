@@ -43,8 +43,14 @@ app.get('/getjobs', async (req, res) => {
 });
 
 app.get('/filterbyname', async (req, res) => {
-    const jobs = await job.find({name: {$regex: req.query.name, $options: "$i"}});
-    res.json(jobs);
+    try {
+        // console.log(req.query.name);
+        const jobs = await job.find({name: {$regex: req.query.name, $options: "$i"}});
+        res.json(jobs);
+    } catch (error) {
+        console.log(error);
+    }
+
 });
 
 app.post('/addjob', (req, res) => {
